@@ -3,6 +3,7 @@ import time
 import os
 import urllib.request
 import importlib
+import requests
 
 # Définition pour voir si `pipp` et que `tqdm` sont installer
 def is_pip_installed():
@@ -21,6 +22,8 @@ def is_tqdm_installed():
 
 # Stock de l'url de la dernière version du logiciel
 url = "https://archive.legoshii.fr/Multi_Tools/download/main.py"
+# Définie le fichier dans lequel nous somme
+local_filename = 'main.py'
 
 # Définition pour installer les indépendances
 def install_dep():
@@ -50,18 +53,23 @@ else:
 # Mise à jour automatique
 stats = os.stat('main.py')
 #print(stats..st_size, "octets") #Affichage de la taille du fichier
-"""if stats != 3579: #Si le fichier n'est pas égale à la valeur de la taille du fichier de la dernière mise à jour alors:
-    for i in tqdm(range(0, 3579), total = 3 579, #3 579 ici = Taille du fichier de la dernière mise à jour
-                desc ="Téléchargement de la mise à jour"):
-        time.sleep(.1)
-    time.sleep(1)
-    urllib.request.urlretrieve(url, "main.py")
-    print("Installation de la mise à jour...")
-    time.sleep(3)
-    os.system("cls")
-else :
-    None
-"""
+# Obtenir le hash MD5 du fichier distant
+response = requests.get(url)
+remote_file_hash = hashlib.md5(response.content).hexdigest()
+
+# Calculer le hash MD5 du fichier local
+with open(local_filename, 'rb') as f:
+    local_file_hash = hashlib.md5(f.read()).hexdigest()
+
+# Comparer les deux hashes et télécharger le fichier distant s'ils sont différents
+if remote_file_hash != local_file_hash:
+    print("Le fichier local est différent du fichier distant. Téléchargement en cours...")
+    response = requests.get(url)
+    with open(local_filename, 'wb') as f:
+        f.write(response.content)
+    print("Le fichier a été téléchargé avec succès.")
+else:
+    print("Le fichier local est identique au fichier distant. Aucun téléchargement nécessaire.")
 
 #Début du logiciel
 os.system("title Multi Tools V1 - Version 0.1")
