@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # from tqdm import tqdm #Usage du module pour faire des barres de progressions
 import subprocess
 import time
