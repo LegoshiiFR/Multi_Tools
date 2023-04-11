@@ -1,11 +1,12 @@
+# from tqdm import tqdm #Usage du module pour faire des barres de progressions
 import subprocess
 import time
 import os
 import urllib.request
 import importlib
-import requests
+import hashlib
 
-# Définition pour voir si `pipp` et que `tqdm` sont installer
+# Définition pour voir si `pipp` et que les modules sont installer
 def is_pip_installed():
     try:
         importlib.import_module('pip')
@@ -13,9 +14,18 @@ def is_pip_installed():
     except ImportError:
         return False
     
+"""
 def is_tqdm_installed():
     try:
         importlib.import_module('tqdm')
+        return True
+    except ImportError:
+        return False
+"""  
+
+def is_requests_installed():
+    try:
+        importlib.import_module('requests')
         return True
     except ImportError:
         return False
@@ -27,14 +37,13 @@ local_filename = 'main.py'
 
 # Définition pour installer les indépendances
 def install_dep():
-    print("Téléchargement des modules...")
-    os.system("pip install tqdm")
+    print("Vérifications des modules...")
     os.system("cls")
-    from tqdm import tqdm
+    
 
-# Test pour savoir si `pip` et `tqdm` sont installer
-if is_pip_installed() and is_tqdm_installed():
-    print("pip et le module tqdm sont déjà installés.")
+# Test pour savoir si `pip` les modules sont installer
+if is_pip_installed() and is_requests_installed():
+    print("pip et les modules sont déjà installés.")
     os.system("cls")
 else:
     if not is_pip_installed():
@@ -44,16 +53,24 @@ else:
         os.system("cls")
         install_dep()
 
-    if not is_tqdm_installed():
+    """if not is_tqdm_installed():
         print("Le module tqdm n'est pas installé. Installation en cours...")
         subprocess.check_call(['pip', 'install', 'tqdm'])
         print("Le module tqdm a été installé avec succès.")
+        os.system("cls")
+        install_dep()"""
+
+    if not is_requests_installed():
+        print("Le module requests n'est pas installé. Installation en cours...")
+        subprocess.check_call(['pip', 'install', 'requests'])
+        print("Le module requests a été installé avec succès.")
         os.system("cls")
 
 # Mise à jour automatique
 stats = os.stat('main.py')
 #print(stats..st_size, "octets") #Affichage de la taille du fichier
 # Obtenir le hash MD5 du fichier distant
+import requests
 response = requests.get(url)
 remote_file_hash = hashlib.md5(response.content).hexdigest()
 
