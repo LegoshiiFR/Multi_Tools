@@ -4,9 +4,13 @@ import time
 import os
 import importlib
 from random import *
+import sys
 
 #Début du logiciel
-os.system("title Multi Tools V1 - Version 0.1 | Free")
+os.system("title Multi Tools V1 - Version 0.1 - Free")
+version_date = "12/04/23"
+version = "0.1"
+
 
 # Définition pour voir si `pipp` et que les modules sont installer
 def is_pip_installed():
@@ -64,13 +68,13 @@ def num_class():
     time.sleep(1)
 
     choix_fonction = input("""
-[0] Informations du logiciel
-[1] Mise à jour automatique des logiciels
-[2] Voir les IP
-[3] Suppression du cache des DNS
+[0] Informations du logiciel.
+[1] Mise à jour automatique des logiciels.
+[2] Voir les IP.
+[3] Suppression du cache des DNS.
 [4] Voir les informations du système.
 
-[99] Fermer le logiciel
+[*] Fermer le logiciel
 
 Choix > """)
 
@@ -78,13 +82,7 @@ Choix > """)
         os.system("winget upgrade --all")
         next()
     elif choix_fonction == '0':
-        print(""" 
-- Version [0.1]
-- Créer par Legoshii レゴシイ#3660
-- Version Python : 3.10
-- Site web : https://legoshii.fr
-- Support : SOON
-        """)
+        print("\n- Dernière mise à jour le", version_date ,"\n- Version :", version ,"- Free \n- Créer par Legoshii レゴシイ#3660\n- Version Python :",sys.version, "\n- Site web : https://legoshii.fr\n- Liste des mise à jour : https://legoshii.fr/multi-tools/update\n- Support : SOON\n")
         next()
     elif choix_fonction == '2':
         os.system("ipconfig")
@@ -96,9 +94,9 @@ Choix > """)
         os.system("systeminfo")
         next()
     elif choix_fonction == '69':
-        print("`\nNice :)")
+        print("\nNice :)")
         next()
-    elif choix_fonction == '99':
+    elif choix_fonction == '*':
         os.system("exit")
     else:
         print("Choix invalide")
@@ -106,10 +104,10 @@ Choix > """)
 def next():
     time.sleep(1)
     choix_next = input("""Continuer ? (Y/N) """)
-    if choix_next == "Y":
+    if choix_next == "Y" or choix_next == "y":
         os.system("cls")
         num_class()
-    if choix_next == "N":
+    if choix_next == "N" or choix_next == "n":
         next()
     else:
         print("Choix invalide :/")
