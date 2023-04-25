@@ -58,11 +58,6 @@ def verif_module():
 verif_module()
 
 
-# Mise à jour automatique
-stats = os.stat('main.py')
-#print(stats..st_size, "octets") #Affichage de la taille du fichier
-
-
 def num_class():
     print("Multi Tools V1 - Made By Legoshii レゴシイ#3660\n")
     time.sleep(1)
