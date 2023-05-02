@@ -1,4 +1,3 @@
-# from tqdm import tqdm #Usage du module pour faire des barres de progressions
 import subprocess
 import time
 import os
@@ -88,6 +87,8 @@ def verif_previous_version():
         time.sleep(1)
         os.remove("Multi_Tools_Last_Version.exe")
         print("Supression de la dernière version terminer.")
+        time.sleep(1)
+        os.system("cls")
     else:
         print("Pas d'ancienne version détecter.")
         time.sleep(1)
