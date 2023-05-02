@@ -9,7 +9,7 @@ import requests
 #Début du logiciel
 os.system("title Multi Tools - Vérification en cours...")
 version_date = "02/05/23"
-version = "0.9"
+version = "1.0"
 
 
 # Définition pour voir si `pipp` et que les modules sont installer
@@ -96,32 +96,6 @@ def verif_previous_version():
 
 verif_previous_version()
 
-'''def update_logiciel():
-    print(" ")
-    print("Merci de patienter...")
-
-    # Obtenir le contenu du fichier actuel
-    with open(__file__, 'rb') as f:
-        current_content = f.read()
-
-    # Obtenir le contenu du fichier à partir de l'URL
-    url = 'https://archive.legoshii.fr/multi_tools/download/latest/Multi_Tools.exe'
-    response = requests.get(url)
-    remote_content = response.content
-
-    # Comparer les deux contenus de fichier
-    if current_content != remote_content:
-        # Si les deux contenus sont différents, télécharger le fichier à partir de l'URL
-        with open('Multi_Tools.exe', 'wb') as f:
-            f.write(remote_content)
-        print('Le fichier a été téléchargé avec succès.')
-        time.sleep(2)
-        os.startfile("Multi_Tools.exe")
-        os.system("exit")
-    else:
-        print('Les deux fichiers sont identiques.')
-        next()'''
-
 def update_logiciel():
     # Définir l'URL du fichier à télécharger
     url = "https://archive.legoshii.fr/multi_tools/download/latest/Multi_Tools.exe"
@@ -145,8 +119,10 @@ def update_logiciel():
                 f.write(response.content)
 
             print("Le nouveau fichier a été téléchargé avec succès.")
+            os.startfile("Multi_Tools.exe")
+            os.system("exit")
         else:
-            print("Le fichier actuel et le nouveau fichier ont la même taille, le téléchargement n'est pas nécessaire.")
+            print("Vous possèdez la dernière version :)")
     else:
         # Télécharger le fichier car il n'existe pas dans le répertoire actuel
         response = requests.get(url)
@@ -158,8 +134,8 @@ def update_logiciel():
         print("Le fichier a été téléchargé avec succès.")
 
 def num_class():
-    os.system("title Multi Tools V0.9 - Made By Legoshii レゴシイ#3660")
-    print("Multi Tools V0.9 - Made By Legoshii レゴシイ#3660\n")
+    os.system("title Multi Tools V1.0 - Made By Legoshii レゴシイ#3660")
+    print("Multi Tools V1.0 - Made By Legoshii レゴシイ#3660\n")
     time.sleep(1)
 
     choix_fonction = input("""

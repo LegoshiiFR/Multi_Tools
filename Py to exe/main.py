@@ -9,7 +9,7 @@ import requests
 #Début du logiciel
 os.system("title Multi Tools - Vérification en cours...")
 version_date = "02/05/23"
-version = "0.9"
+version = "1.0"
 
 
 # Définition pour voir si `pipp` et que les modules sont installer
@@ -145,6 +145,8 @@ def update_logiciel():
                 f.write(response.content)
 
             print("Le nouveau fichier a été téléchargé avec succès.")
+            os.startfile("Multi_Tools.exe")
+            os.system("exit")
         else:
             print("Le fichier actuel et le nouveau fichier ont la même taille, le téléchargement n'est pas nécessaire.")
     else:
@@ -158,8 +160,8 @@ def update_logiciel():
         print("Le fichier a été téléchargé avec succès.")
 
 def num_class():
-    os.system("title Multi Tools V0.9 - Made By Legoshii レゴシイ#3660")
-    print("Multi Tools V0.9 - Made By Legoshii レゴシイ#3660\n")
+    os.system("title Multi Tools V1.0 - Made By Legoshii レゴシイ#3660")
+    print("Multi Tools V1.0 - Made By Legoshii レゴシイ#3660\n")
     time.sleep(1)
 
     choix_fonction = input("""
