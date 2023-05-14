@@ -96,32 +96,6 @@ def verif_previous_version():
 
 verif_previous_version()
 
-'''def update_logiciel():
-    print(" ")
-    print("Merci de patienter...")
-
-    # Obtenir le contenu du fichier actuel
-    with open(__file__, 'rb') as f:
-        current_content = f.read()
-
-    # Obtenir le contenu du fichier à partir de l'URL
-    url = 'https://archive.legoshii.fr/multi_tools/download/latest/Multi_Tools.exe'
-    response = requests.get(url)
-    remote_content = response.content
-
-    # Comparer les deux contenus de fichier
-    if current_content != remote_content:
-        # Si les deux contenus sont différents, télécharger le fichier à partir de l'URL
-        with open('Multi_Tools.exe', 'wb') as f:
-            f.write(remote_content)
-        print('Le fichier a été téléchargé avec succès.')
-        time.sleep(2)
-        os.startfile("Multi_Tools.exe")
-        os.system("exit")
-    else:
-        print('Les deux fichiers sont identiques.')
-        next()'''
-
 def update_logiciel():
     # Définir l'URL du fichier à télécharger
     url = "https://archive.legoshii.fr/multi_tools/download/latest/Multi_Tools.exe"
@@ -148,7 +122,7 @@ def update_logiciel():
             os.startfile("Multi_Tools.exe")
             os.system("exit")
         else:
-            print("Le fichier actuel et le nouveau fichier ont la même taille, le téléchargement n'est pas nécessaire.")
+            print("Vous possèdez la dernière version :)")
     else:
         # Télécharger le fichier car il n'existe pas dans le répertoire actuel
         response = requests.get(url)
@@ -158,6 +132,32 @@ def update_logiciel():
             f.write(response.content)
 
         print("Le fichier a été téléchargé avec succès.")
+
+
+def verif_update_logiciel():
+    # Définir l'URL du fichier à télécharger
+    url = "https://archive.legoshii.fr/multi_tools/download/latest/Multi_Tools.exe"
+
+    # Vérifier si le fichier existe déjà dans le répertoire actuel
+    if os.path.exists("Multi_Tools.exe"):
+        # Calculer la taille du fichier actuel
+        size_actuel = os.path.getsize("Multi_Tools.exe")
+
+        # Télécharger le nouveau fichier
+        response = requests.get(url)
+
+        # Vérifier si la taille du nouveau fichier est différente de celle de l'actuel
+        if len(response.content) != size_actuel:
+            print("⚠️ : Nouvelle version détectée")
+            choix_next = input("""Souhaitez vous la télécharger ? (Y/N) """)
+            if choix_next == "Y" or choix_next == "y":
+                update_logiciel()
+            if choix_next == "N" or choix_next == "n":
+                os.system("exit")
+            else:
+                print("Choix invalide :/")  
+
+verif_update_logiciel()
 
 def num_class():
     os.system("title Multi Tools V1.0 - Made By Legoshii レゴシイ#3660")

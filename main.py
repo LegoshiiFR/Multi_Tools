@@ -8,8 +8,8 @@ import requests
 
 #Début du logiciel
 os.system("title Multi Tools - Vérification en cours...")
-version_date = "02/05/23"
-version = "1.0"
+version_date = "14/05/23"
+version = "1.1"
 
 
 # Définition pour voir si `pipp` et que les modules sont installer
@@ -133,9 +133,35 @@ def update_logiciel():
 
         print("Le fichier a été téléchargé avec succès.")
 
+
+def verif_update_logiciel():
+    # Définir l'URL du fichier à télécharger
+    url = "https://archive.legoshii.fr/multi_tools/download/latest/Multi_Tools.exe"
+
+    # Vérifier si le fichier existe déjà dans le répertoire actuel
+    if os.path.exists("Multi_Tools.exe"):
+        # Calculer la taille du fichier actuel
+        size_actuel = os.path.getsize("Multi_Tools.exe")
+
+        # Télécharger le nouveau fichier
+        response = requests.get(url)
+
+        # Vérifier si la taille du nouveau fichier est différente de celle de l'actuel
+        if len(response.content) != size_actuel:
+            print("⚠️ : Nouvelle version détectée")
+            choix_next = input("""Souhaitez vous la télécharger ? (Y/N) """)
+            if choix_next == "Y" or choix_next == "y":
+                update_logiciel()
+            if choix_next == "N" or choix_next == "n":
+                os.system("exit")
+            else:
+                print("Choix invalide :/")  
+
+verif_update_logiciel()
+
 def num_class():
-    os.system("title Multi Tools V1.0 - Made By Legoshii レゴシイ#3660")
-    print("Multi Tools V1.0 - Made By Legoshii レゴシイ#3660\n")
+    os.system("title Multi Tools V1.1 - Made By Legoshii レゴシイ#3660")
+    print("Multi Tools V1.1 - Made By Legoshii レゴシイ#3660\n")
     time.sleep(1)
 
     choix_fonction = input("""
