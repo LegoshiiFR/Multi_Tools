@@ -6,10 +6,11 @@ from random import *
 import sys
 import requests
 
+
 #Début du logiciel
 os.system("title Multi Tools - Vérification en cours...")
-version_date = "02/05/23"
-version = "1.0"
+version_date = "14/05/23"
+version = "1.1"
 
 
 # Définition pour voir si `pipp` et que les modules sont installer
@@ -34,7 +35,14 @@ def is_requests_installed():
         return True
     except ImportError:
         return False
-
+    
+'''def is_win10toast_installed():
+    try:
+        importlib.import_module('win10toast')
+        return True
+    except ImportError:
+        return False
+'''
 
 # Test pour savoir si `pip` les modules sont installer
 if is_pip_installed() and is_tqdm_installed() and is_requests_installed():
@@ -61,7 +69,14 @@ else:
         print("Le module requests a été installé avec succès.")
         time.sleep(1)
         os.system("cls")
-
+    
+    '''if not is_win10toast_installed():
+        print("Le module win10toast n'est pas installé. Installation en cours...")
+        subprocess.check_call(['pip', 'install', 'win10toast'])
+        print("Le module win10toast a été installé avec succès.")
+        time.sleep(1)
+        os.system("cls")
+    '''
 
 def verif_module():
     from tqdm import trange
@@ -80,17 +95,17 @@ def verif_previous_version():
         print("Une ancienne version a été détectée, merci de patienter...")
         time.sleep(2)
         from tqdm import trange
-        for i in trange(1, desc='Configuration en cours...'):
+        for i in trange(1, desc='⚙️ Configuration en cours...'):
             time.sleep(0.01)
             '''for x in trange(randint(0,15), desc=f' {i}'):
                 time.sleep(.1)'''
         time.sleep(1)
         os.remove("Multi_Tools_Last_Version.exe")
-        print("Supression de la dernière version terminer.")
+        print("❌ Supression de la dernière version terminer.")
         time.sleep(1)
         os.system("cls")
     else:
-        print("Pas d'ancienne version détecter.")
+        print("✅ Pas d'ancienne version détecter.")
         time.sleep(1)
         os.system("cls")
 
@@ -122,7 +137,7 @@ def update_logiciel():
             os.startfile("Multi_Tools.exe")
             os.system("exit")
         else:
-            print("Vous possèdez la dernière version :)")
+            print("✅ Vous possèdez la dernière version :)")
     else:
         # Télécharger le fichier car il n'existe pas dans le répertoire actuel
         response = requests.get(url)
@@ -131,7 +146,7 @@ def update_logiciel():
         with open("Multi_Tools.exe", "wb") as f:
             f.write(response.content)
 
-        print("Le fichier a été téléchargé avec succès.")
+        print("✅ Le fichier a été téléchargé avec succès.")
 
 
 def verif_update_logiciel():
@@ -148,6 +163,12 @@ def verif_update_logiciel():
 
         # Vérifier si la taille du nouveau fichier est différente de celle de l'actuel
         if len(response.content) != size_actuel:
+            '''from win10toast import ToastNotifier
+            toaster = ToastNotifier()
+            toaster.show_toast("⚙️ Mise à jour", "⚠️ : Une nouvelle version à était détecter. Souhaitez-vous l'installer ?")
+            toaster.notification_click = update_logiciel'''
+
+
             print("⚠️ : Nouvelle version détectée")
             choix_next = input("""Souhaitez vous la télécharger ? (Y/N) """)
             if choix_next == "Y" or choix_next == "y":
@@ -155,13 +176,13 @@ def verif_update_logiciel():
             if choix_next == "N" or choix_next == "n":
                 os.system("exit")
             else:
-                print("Choix invalide :/")  
+                print("Choix invalide :/")
 
 verif_update_logiciel()
 
 def num_class():
-    os.system("title Multi Tools V1.0 - Made By Legoshii レゴシイ#3660")
-    print("Multi Tools V1.0 - Made By Legoshii レゴシイ#3660\n")
+    os.system("title Multi Tools V1.1 - Made By Legoshii レゴシイ#3660")
+    print("Multi Tools V1.1 - Made By Legoshii レゴシイ#3660\n")
     time.sleep(1)
 
     choix_fonction = input("""
