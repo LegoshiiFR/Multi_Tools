@@ -101,11 +101,7 @@ def verif_previous_version():
         print("⚙️ Une ancienne version a été détectée, merci de patienter...")
         time.sleep(2)
         from tqdm import trange
-        for i in trange(1, desc='⚙️ Configuration en cours...'):
-            time.sleep(0.01)
-            '''for x in trange(randint(0,15), desc=f' {i}'):
-                time.sleep(.1)'''
-        time.sleep(1)
+        print("[green] ⚙️ Configuration en cours...")
         os.remove("Multi_Tools_Last_Version.exe")
         print("✅ Supression de la dernière version terminer.")
         time.sleep(1)
@@ -188,6 +184,7 @@ def verif_update_logiciel():
 verif_update_logiciel()
 
 def uninstall_logiciel():
+    os.system("cls")
     from rich.console import Console
     from rich.markdown import Markdown
 
@@ -196,8 +193,8 @@ def uninstall_logiciel():
     markdown_content = response.text
 
     markdown = Markdown(markdown_content)
-    print(markdown)
-    choix_next = input("""❓ [yellow] Souhaitez-vous désinstaller le logiciel ? """)
+    print(markdown, "\n \n")
+    choix_next = input("""❓ Souhaitez-vous désinstaller le logiciel ? (Y/N)""")
     if choix_next == "Y" or choix_next == "y":
         print("En cours de développement ...")
     if choix_next == "N" or choix_next == "n":
@@ -247,6 +244,7 @@ Choix > """)
     elif choix_fonction == '99':
         uninstall_logiciel()
     elif choix_fonction == '*':
+        print("Fermeture du logiciel")
         os.system("exit")
     else:
         print("Choix invalide")

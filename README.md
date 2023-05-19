@@ -1,12 +1,7 @@
 
 # Désinstallation du logiciel
 
-Le logiciel va bientôt être suprimer...
-
-## Configuration minimal du logiciel
-
-- Système d'exploitation : Windows
-- Espace disque disponible : 43 Mo
+Vous êtes sur le point de supprimer le logiciel Multi_Tools. Les fichiers vont bientôt être supprimés.
 
 ## Avertissement
 

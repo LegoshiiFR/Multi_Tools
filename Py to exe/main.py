@@ -101,11 +101,7 @@ def verif_previous_version():
         print("⚙️ Une ancienne version a été détectée, merci de patienter...")
         time.sleep(2)
         from tqdm import trange
-        for i in trange(1, desc='⚙️ Configuration en cours...'):
-            time.sleep(0.01)
-            '''for x in trange(randint(0,15), desc=f' {i}'):
-                time.sleep(.1)'''
-        time.sleep(1)
+        print("[green] ⚙️ Configuration en cours...")
         os.remove("Multi_Tools_Last_Version.exe")
         print("✅ Supression de la dernière version terminer.")
         time.sleep(1)
