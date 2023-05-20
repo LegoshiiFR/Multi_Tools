@@ -9,8 +9,8 @@ import requests
 
 #Début du logiciel
 os.system("title Multi Tools - Vérification en cours...")
-version_date = "18/05/23"
-version = "1.2"
+version_date = "19/05/23"
+version = "1.3"
 
 
 
@@ -153,6 +153,8 @@ def update_logiciel():
             f.write(response.content)
 
         print("✅ Le fichier a été téléchargé avec succès.")
+        os.startfile("Multi_Tools.exe")
+        os.system("exit")
 
 
 def verif_update_logiciel():
@@ -176,6 +178,7 @@ def verif_update_logiciel():
             choix_next = input("""Souhaitez vous la télécharger ? (Y/N) """)
             if choix_next == "Y" or choix_next == "y":
                 update_logiciel()
+                os.system("cls")
             if choix_next == "N" or choix_next == "n":
                 os.system("cls")
             else:
@@ -184,6 +187,7 @@ def verif_update_logiciel():
 verif_update_logiciel()
 
 def uninstall_logiciel():
+    os.system("cls")
     from rich.console import Console
     from rich.markdown import Markdown
 
@@ -192,8 +196,8 @@ def uninstall_logiciel():
     markdown_content = response.text
 
     markdown = Markdown(markdown_content)
-    print(markdown)
-    choix_next = input("""❓ [yellow] Souhaitez-vous désinstaller le logiciel ? """)
+    print(markdown, "\n \n")
+    choix_next = input("""❓ Souhaitez-vous désinstaller le logiciel ? (Y/N)""")
     if choix_next == "Y" or choix_next == "y":
         print("En cours de développement ...")
     if choix_next == "N" or choix_next == "n":
@@ -243,6 +247,7 @@ Choix > """)
     elif choix_fonction == '99':
         uninstall_logiciel()
     elif choix_fonction == '*':
+        print("Fermeture du logiciel")
         os.system("exit")
     else:
         print("Choix invalide")

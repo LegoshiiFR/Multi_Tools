@@ -9,8 +9,8 @@ import requests
 
 #Début du logiciel
 os.system("title Multi Tools - Vérification en cours...")
-version_date = "18/05/23"
-version = "1.2"
+version_date = "19/05/23"
+version = "1.3"
 
 
 
@@ -153,6 +153,8 @@ def update_logiciel():
             f.write(response.content)
 
         print("✅ Le fichier a été téléchargé avec succès.")
+        os.startfile("Multi_Tools.exe")
+        os.system("exit")
 
 
 def verif_update_logiciel():
@@ -176,6 +178,7 @@ def verif_update_logiciel():
             choix_next = input("""Souhaitez vous la télécharger ? (Y/N) """)
             if choix_next == "Y" or choix_next == "y":
                 update_logiciel()
+                os.system("cls")
             if choix_next == "N" or choix_next == "n":
                 os.system("cls")
             else:
