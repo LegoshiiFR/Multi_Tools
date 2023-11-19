@@ -4,7 +4,7 @@
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.1-blue.svg?cacheSeconds=2592000" />
 </p>
 
-> Logiciel python ppermettant de vous accompagner et de booster votre PC !
+> Logiciel python permettant de vous accompagner et de booster votre PC !
 
 
 ## Tester la version
