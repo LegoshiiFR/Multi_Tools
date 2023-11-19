@@ -1,7 +1,7 @@
 
 <h1 align="center">Multi_Tools 🔑</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.0.1-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-1.3-blue.svg?cacheSeconds=2592000" />
 </p>
 
 > Logiciel python permettant de vous accompagner et de booster votre PC !
