@@ -15,7 +15,7 @@
 
 👤 **Legoshii**
 
-* Website: https://legoshii.fr
+* Website: https://legoshii.com
 * Github: [@Legoshii](https://github.com/Legoshii)
 
 ## Support
